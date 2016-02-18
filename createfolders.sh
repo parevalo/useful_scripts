@@ -12,7 +12,7 @@ for DIR in $1/*/ ; do
         echo "Folder already exists in ${DIR}"
 
     else
-        mkdir "${DIR}$2"
+        mkdir -p "${DIR}$2"
         echo "Folder created in ${DIR}"
 		 
     fi
