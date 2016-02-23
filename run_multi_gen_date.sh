@@ -1,6 +1,6 @@
 #!/bin/bash
 #$ -V
-# -j y
+#$ -j y
 
 # Executes gen_date_file.sh and places the output in the corresponding image folder.
 # It is easier to keep the output file in the image folder because it can be used
@@ -20,7 +20,7 @@ for DIR in $scn_path/*/ ; do
 
 	else
 		echo "Creating file in ${DIR}"
-		script /images $output
+		$script images $output
 	fi	
 done
 
