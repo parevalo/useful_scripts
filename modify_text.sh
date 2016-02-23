@@ -21,9 +21,9 @@ for DIR in $scn_path/*/ ; do
 	rw=${row:1:2}
 	
 	# Replace P-R in the config file and all the scripts
-	sed -i "s/007058/$path$row/g" 758_FIT1.yaml *.sh
-#	sed -i 's/758/$p$r/' $p$r_"FIT1.yaml" *.sh
+	# r MUST precede i in the sed expression. The second expression works
+	# for cases with _ after the number but not the other way around, for now.
 	
-#	sed -i -r "s/^[0]\d{5}/$path$row/g" 758_FIT1.yaml
-	sed -i "s/758/$pt$rw/g" *.sh 758_FIT1.yaml
+	sed -ri "s/[0-9]{6}/$path$row/g" 758_FIT1.yaml *.sh
+	sed -ri "s/[0-9]{3}.*_/$pt$rw"_"/g" 758_FIT1.yaml *.sh
 done
