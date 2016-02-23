@@ -11,7 +11,7 @@ script=/projectnb/landsat/users/parevalo/yatsm/scripts/gen_date_file.sh
 
 for DIR in $scn_path/*/ ; do
 	cd ${DIR}
-	pr=$(echo ${DIR} | awk -F'/' '{ print $7 }') # Get folder name with P-R
+	pr=$(basename ${DIR}) # Get folder name with P-R
 	path=${pr:2:1}
 	row=${pr:4:2}
 	output=$path$row"_input.csv"
