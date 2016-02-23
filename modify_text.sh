@@ -21,9 +21,9 @@ for DIR in $scn_path/*/ ; do
 	rw=${row:1:2}
 	
 	# Replace P-R in the config file and all the scripts
-#	sed -i 's/007058/$path$row/' $p$r_"FIT1.yaml" *.sh
+	sed -i "s/007058/$path$row/g" 758_FIT1.yaml *.sh
 #	sed -i 's/758/$p$r/' $p$r_"FIT1.yaml" *.sh
 	
-	sed -i -n 's/^[0]\d{5}/$path$row/p' $pt$rw"_FIT1.yaml" *.sh
-	sed -i 's/758/$p$r/' $p$r"_FIT1.yaml" *.sh
+#	sed -i -r "s/^[0]\d{5}/$path$row/g" 758_FIT1.yaml
+	sed -i "s/758/$pt$rw/g" *.sh 758_FIT1.yaml
 done
