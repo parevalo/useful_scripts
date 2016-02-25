@@ -3,7 +3,10 @@
 #$ -j y
 
 # This is a generic script to copy files or folders into any specific
-# FIT subfolder inside all of the scene folders
+# FIT subfolder inside all of the scene folders. This script is intended for use
+# in BRAND NEW folders, as it has the potential to overwrite scripts available
+# in current FIT folders. The goal is to use it when brand new models are run
+# for the entire study area.
 
 if [ $# -lt 2 ]; then
 	echo "Error - please specify the files/folders to copy and the desired
