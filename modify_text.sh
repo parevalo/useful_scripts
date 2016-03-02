@@ -21,9 +21,10 @@ for DIR in $scn_path/*/ ; do
 	rw=${row:1:2}
 	
 	# Replace P-R in the config file and all the scripts
-	# r MUST precede i in the sed expression. The second expression works
-	# for cases with _ after the number but not the other way around, for now.
+	# r (use extended regexp)  MUST precede i(in place edits) in the sed 
+	# expression. The second expression works for cases with _ after the 
+	# number but not the other way around, for now.
 	
 	sed -ri "s/[0-9]{6}/$path$row/g" 758_FIT1.yaml *.sh
-	sed -ri "s/[0-9]{3}.*_/$pt$rw"_"/g" 758_FIT1.yaml *.sh
+	sed -ri "s/[0-9]{3}_/$pt$rw"_"/g" 758_FIT1.yaml *.sh
 done
