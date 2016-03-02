@@ -2,9 +2,9 @@
 #$ -V
 #$ -j y
 
-# This is a generic script to copy files or folders into any specific
+# This is a generic script to copy the starting files or folders into any specific
 # FIT subfolder inside all of the scene folders. The copy function won't
-# overwrite any existing file.
+# overwrite any existing files.
 #
 
 if [ $# -lt 2 ]; then
@@ -14,20 +14,19 @@ if [ $# -lt 2 ]; then
 	exit 1
 fi
 
-parent="/usr3/graduate/parevalo/test"
-current="/projectnb/landsat/projects/Colombia/workflow"
+origin="/projectnb/landsat/projects/Colombia/workflow"
+destination="/usr3/graduate/parevalo/test"
+#destination="/projectnb/landsat/projects/Colombia/images"
 
-# Do not overwrite, be verbose, recursive
-for DIR in $parent/*/ ; do
+for DIR in $destination/*/ ; do
 	cd ${DIR}
 	if [ -d ${DIR}$2 ]; then
-		cp -n -v -r $current/$1 $2
-		echo "Files created in ${DIR}$2"
+		# Do not overwrite, be verbose, recursive
+		cp -n -v -r $origin/$1 $2 
 	else
-		echo "$current$1"
 		mkdir -p "${DIR}$2"
 		echo "Subfolder $2 has been created in ${DIR}"
-		cp -u -v -r $current/$1 $2
+		cp -n -v -r $origin/$1 $2
 		echo "Files created in ${DIR}$2"
 	fi
 done   
