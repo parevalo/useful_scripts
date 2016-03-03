@@ -21,12 +21,12 @@ destination="/usr3/graduate/parevalo/test"
 for DIR in $destination/*/ ; do
 	cd ${DIR}
 	if [ -d ${DIR}$2 ]; then
-		# Do not overwrite, be verbose, recursive
-		cp -n -v -r $origin/$1 $2 
+		# Do not overwrite, be verbose, recursive, exclude hidden and md files
+		rsync --ignore-existing --exclude=".*" --exclude="*.md" -v -r $origin/$1 $2 
 	else
 		mkdir -p "${DIR}$2"
 		echo "Subfolder $2 has been created in ${DIR}"
-		cp -n -v -r $origin/$1 $2
+		rsync --ignore-existing --exclude=".*" --exclude="*.md" -v -r $origin/$1 $2 
 		echo "Files created in ${DIR}$2"
 	fi
 done   
