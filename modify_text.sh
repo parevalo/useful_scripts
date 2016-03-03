@@ -19,13 +19,16 @@ for DIR in $scn_path/*/ ; do
 	
 	pt=${path:2:1}
 	rw=${row:1:2}
+
+	# Rename yaml files
+	rename 758 $pt$rw *.yaml
 	
 	# Replace P-R in the config file and all the scripts
 	# r (use extended regexp)  MUST precede i(in place edits) in the sed 
 	# expression.
 	
-	sed -ri "s/[0-9]{6}/$path$row/g" 758_FIT1.yaml *.sh
-	sed -ri "s/[0-9]{3}_/$pt$rw"_"/g" 758_FIT1.yaml *.sh
+	sed -ri "s/[0-9]{6}/$path$row/g" $pt$rw"_FIT1.yaml" *.sh
+	sed -ri "s/[0-9]{3}_/$pt$rw"_"/g" $pt$rw"_FIT1.yaml" *.sh
 	sed -ri "s/_[0-9]{3}\b/"_"$pt$rw/g" *.sh
 
 done
