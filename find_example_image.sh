@@ -7,3 +7,5 @@ img=$(find . -maxdepth 1 -type d -name "*LE7*" | head -1 )
 #img=$(find . -maxdepth 1 -type d -regextype posix-extended -regex "./LE7.*" | head -1 )
 echo $(basename $img)
 echo $(basename $img)_stack
+
+## ADD SECTION TO OUTPUT EXTENT TO A FILE, IN ORDER TO BE USED FOR RASTERIZING

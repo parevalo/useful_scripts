@@ -6,8 +6,8 @@
 # during the yatsm workflow, in order to change the path/rows for input/output
 # folders and things like that
 
-#scn_path=/projectnb/landsat/projects/Colombia/images
-scn_path=/usr3/graduate/parevalo/test
+scn_path=/projectnb/landsat/projects/Colombia/images
+#scn_path=/usr3/graduate/parevalo/test
 
 for DIR in $scn_path/*/ ; do
 	cd ${DIR}Results/FIT1

@@ -15,8 +15,8 @@ if [ $# -lt 2 ]; then
 fi
 
 origin="/projectnb/landsat/projects/Colombia/workflow"
-destination="/usr3/graduate/parevalo/test"
-#destination="/projectnb/landsat/projects/Colombia/images"
+#destination="/usr3/graduate/parevalo/test"
+destination="/projectnb/landsat/projects/Colombia/images"
 
 for DIR in $destination/*/ ; do
 	cd ${DIR}
