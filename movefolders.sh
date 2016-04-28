@@ -1,13 +1,20 @@
-%%bash
+#!/bin/bash
+# Script to move image folders to another place when the Landsat date is
+# older than any arbitrary date
 
-cd /projectnb/landsat/projects/Colombia/images/007059/images
-n=$(find . -maxdepth 1 -name '*007059198[7-9]*' | wc -l)
-i=1
+scene=009059
+datetest=1999175
 
-for archive in $(find . -maxdepth 1 -name '*007059198[7-9]*'); do
-    echo "<----- $i / $n: $(basename $archive)"
-    mv $archive ../img90
-    let i+=1
+cd /projectnb/landsat/projects/Colombia/images/$scene/images
+
+for archive in $(ls -d L*); do
+    date=${archive:9:7}
+    if [ $date -lt $datetest ]; then
+        echo "Moving $(basename $archive) to ../img_old "  
+        mv $archive ../img_old
+    else
+        echo "Folder $archive is newer than $datetest"
+    fi
 done
 
 echo "Done!"
