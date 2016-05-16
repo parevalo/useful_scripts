@@ -2,8 +2,8 @@
 # Script to move image folders to another place when the Landsat date is
 # older than any arbitrary date
 
-scene=009059
-datetest=1999175
+scene=009060
+datetest=1996247
 
 cd /projectnb/landsat/projects/Colombia/images/$scene/images
 
