@@ -1,4 +1,7 @@
 #!/bin/bash
+#$ -V
+#$ -j y
+#$ -N createfolders
 
 if [ $# -lt 2 ]; then
     echo "Error - please specify the image directory that stores all the scenes
@@ -9,11 +12,11 @@ fi
 
 for DIR in $1/*/ ; do
     if [ -d ${DIR}$2 ]; then
-        echo "Folder already exists in ${DIR}"
+        echo "Folder $2 already exists in ${DIR}"
 
     else
         mkdir -p "${DIR}$2"
-        echo "Folder created in ${DIR}"
+        echo "Folder $2  created in ${DIR}"
 		 
     fi
 done
