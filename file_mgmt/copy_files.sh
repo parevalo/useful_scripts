@@ -2,6 +2,8 @@
 #$ -V
 #$ -j y
 
+
+## TESTING HERE TESTING HERE
 # This is a generic script to copy the starting files or folders into any specific
 # FIT subfolder inside all of the scene folders. The copy function won't
 # overwrite any existing files.
